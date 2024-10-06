@@ -1,0 +1,15 @@
+Resources:
+  SlackGoogleChatBridgeFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: app.handler
+      Runtime: python3.9
+      CodeUri: .
+      MemorySize: 128
+      Timeout: 10
+      Events:
+        ChatWebhook:
+          Type: Api
+          Properties:
+            Path: /chat-webhook
+            Method: post
